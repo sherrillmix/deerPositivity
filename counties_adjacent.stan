@@ -11,10 +11,10 @@ transformed data{
   matrix<lower = 0>[nCounty, nCounty] D;
   {
     vector[nCounty] adj_rowsums;
-    for (i in 1:nCounty) {
-      adj_rowsums[i] = sum(adjacency[i, ]);
+    for (ii in 1:nCounty) {
+      adj_rowsums[ii] = sum(adjacency[ii, ]);
     }
-    D = diag_matrix(adj_rowsums);
+    D = diag_matrix(adj_rowsums)+0.0001;
   }
   zeros = rep_vector(0, nCounty);
 }
@@ -31,8 +31,8 @@ transformed parameters{
 
 
 model {
-  positives ~ binomial_logit(counts,overallProp+countyProp);
-  countySd~gamma(1,1);
-  //https://mc-stan.org/users/documentation/case-studies/mbjoseph-CARStan.html
+  countySd~gamma(2,2);
   countyProp~multi_normal_prec(zeros,countySd*(D-alpha*adjacency));
+  positives ~ binomial_logit(counts,overallProp+countyProp);
+  //https://mc-stan.org/users/documentation/case-studies/mbjoseph-CARStan.html
 }
