@@ -1,6 +1,6 @@
 # Analysis code for county positivity for the paper "Multiple Introductions of SARS-CoV-2 Alpha and Delta Variants into White-Tailed Deer in Pennsylvania"
 
-To run the code, start R and `source('analyze.R')` in this directory. The code depnds on packages available from CRAN:
+To run the code, start R and `source('analyze.R')` in this directory. The code depends on these packages available from CRAN:
 
 * parallel
 * rstan
@@ -28,9 +28,9 @@ Here, $\alpha$ represents the average proportion positive for a county
 and the vector of differences from this average for each county,
 $\beta$, is distributed as a multivariate normal:
 
-$\beta\ \mathrm{\text{Normal}}_{\mathrm{\text{prec}}}\mathrm{(0,}\frac{1}{\mathrm{\sigma}}\mathrm{(}\mathrm{D}\mathrm{-}\mathrm{\theta}\mathrm{A}\mathrm{))}$
+$\beta\sim \mathrm{\text{Normal}}_{\mathrm{\text{prec}}}\mathrm{(0,}\frac{1}{\mathrm{\sigma}}\mathrm{(}\mathrm{D}\mathrm{-}\mathrm{\theta}\mathrm{A}\mathrm{))}$
 
-where *D* is a $m \times m$ matrix with 0s on the off diagonal and the
+where $\mathrm{D}$ is a $m \times m$ matrix with 0s on the off diagonal and the
 diagonal element on each row $i$, $D_{i,i}$, equal to the number of
 counties that are adjacent to county $i$, $A$ is a $m \times m$
 adjacency matrix with element $A_{i,j}$ is 1 if county $i$ neighbors
