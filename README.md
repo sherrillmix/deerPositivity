@@ -45,6 +45,6 @@ Posterior probability distributions were estimated using Markov chain
 Monte Carlo sampling using Stan v2.21.0.
 
 County adjacency data was obtained from the US Census Bureau
-([[https://www.census.gov/geographies/reference-files/2010/geo/county-adjacency.html]{.underline}](https://www.census.gov/geographies/reference-files/2010/geo/county-adjacency.html)).
+([https://www.census.gov/geographies/reference-files/2010/geo/county-adjacency.html](https://www.census.gov/geographies/reference-files/2010/geo/county-adjacency.html)).
 
 ![plot of estimated county positivity](countyPositivity.png)
