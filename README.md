@@ -28,7 +28,7 @@ Here, $\alpha$ represents the average proportion positive for a county
 and the vector of differences from this average for each county,
 $\beta$, is distributed as a multivariate normal:
 
-$\beta\sim \text{Normal}_{\text{prec}}(0,\frac{1}{\sigma}(D-\theta\A))$
+$\beta\sim \text{Normal}_{\text{prec}}(0,\frac{1}{\sigma}(D-\theta A))$
 
 where $D$ is a $m \times m$ matrix with 0s on the off diagonal and the
 diagonal element on each row $i$, $D_{i,i}$, equal to the number of
