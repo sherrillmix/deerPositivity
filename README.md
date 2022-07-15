@@ -17,7 +17,7 @@ counties using a Bayesian conditional autoregressive model. The number
 of positive tests, $y_{i}$, out of $n_{i}$ total tests within each
 county $i$ was modeled as:
 
-$y_{i}\ \mathrm{Binomial(}p_{i},n_{i}\mathrm{)}$
+$y_{i}\sim \mathrm{Binomial(}p_{i},n_{i}\mathrm{)}$
 
 where $p_{i}$ is the proportion of deer expected to test positive in
 that county and:
@@ -44,7 +44,7 @@ $\mathrm{\alpha}\ \mathrm{Normal( - 2,10)}$.
 Posterior probability distributions were estimated using Markov chain
 Monte Carlo sampling using Stan v2.21.0.
 
-County adjacency data was obtained from the US Census Bureau
-([https://www.census.gov/geographies/reference-files/2010/geo/county-adjacency.html](https://www.census.gov/geographies/reference-files/2010/geo/county-adjacency.html)).
+County adjacency data was obtained from the 
+[US Census Bureau](https://www.census.gov/geographies/reference-files/2010/geo/county-adjacency.html).
 
 ![plot of estimated county positivity](countyPositivity.png)
