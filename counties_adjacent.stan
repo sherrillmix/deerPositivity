@@ -14,7 +14,7 @@ transformed data{
     for (ii in 1:nCounty) {
       adj_rowsums[ii] = sum(adjacency[ii, ]);
     }
-    D = diag_matrix(adj_rowsums)+0.0001;
+    D = diag_matrix(adj_rowsums);
   }
   zeros = rep_vector(0, nCounty);
 }
@@ -24,15 +24,10 @@ parameters{
   real<lower=0> countySd;
   real<lower=0,upper=1> alpha;
 }
-transformed parameters{
-  //vector[nCounty] countyProp;
-  //countyProp=countyPropRaw*countySd;
-}
-
 
 model {
-  countySd~gamma(2,2);
-  countyProp~multi_normal_prec(zeros,countySd*(D-alpha*adjacency));
+  countySd~gamma(1,1);
+  countyProp~multi_normal_prec(zeros,1/countySd*(D-alpha*adjacency));
   positives ~ binomial_logit(counts,overallProp+countyProp);
-  //https://mc-stan.org/users/documentation/case-studies/mbjoseph-CARStan.html
+  overallProp~normal(-2,10);
 }
